@@ -26,6 +26,14 @@ PetiteVue.createApp({
                 alert("Invalid correct answer of question " + (i + 1));
                 return;
             }
+
+            // Actual quiz creation
+            const response = db
+                .from("quizzes")
+                .insert({data: this.questions})
+                .select();
+
+            console.log(response);
         });
     }
 }).mount()
