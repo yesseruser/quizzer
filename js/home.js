@@ -8,7 +8,7 @@ PetiteVue.createApp({
     addQuestion() {
         this.questions.push({text: "", options: ["", "", "", ""], correct: 0})
     },
-    sendQuiz() {
+    async sendQuiz() {
         this.questions.forEach((question, i) => {
             if (question.text === "") {
                 alert("Please enter text to question " + (i + 1));
@@ -25,15 +25,15 @@ PetiteVue.createApp({
             if (question.correct < 0 || question.correct > 3) {
                 alert("Invalid correct answer of question " + (i + 1));
                 return;
-            }
-
-            // Actual quiz creation
-            const response = db
-                .from("quizzes")
-                .insert({data: this.questions})
-                .select();
-
-            console.log(response);
+            }            
         });
+
+        // Actual quiz creation
+        const response = await db
+        .from("quizzes")
+        .insert({data: this.questions})
+        .select();
+
+        console.log(response);
     }
 }).mount()
