@@ -21,11 +21,17 @@
             </div>
         </div>
         <div class="questions-wrapper">
-            <div class="question">
+            <div class="question" v-for="question, i in questions">
                 <div class="topbar">
                     <div class="title">Question #1</div>
                 </div>
-                <p class="description">SAFLAHFLAHFLAKJAFJALFALFJALkj</p>
+                <div class="description">Lorem ipsum dolor sit amet et cenetoajortj</div>
+                <div class="answers">
+                    <div class="answer" v-for="option, j in question.options">
+                        <input type="radio" class="answer-radio" @change="question.correct = j" :checked="question.correct === j">
+                        <div class="answer-text" v-model="question.options[j]"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
