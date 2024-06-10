@@ -34,6 +34,6 @@ PetiteVue.createApp({
         .insert({data: this.questions})
         .select();
 
-        location.href = "quiz.html?id=" + response.data[0].id;
+        location.href = "quiz.html?id=" + response.data[0].id + "&preview=true";
     }
 }).mount()
