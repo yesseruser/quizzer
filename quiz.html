@@ -20,6 +20,12 @@
                 </span>
             </div>
         </div>
+
+        <div class="copy-link" v-if="preview === true">
+            <div class="created">Your quiz has been successfully created!</div>
+            <input type="button" value="Copy link" class="copybtn">
+        </div>
+
         <div class="questions-wrapper">
             <div class="question" v-for="question, i in questions">
                 <div class="topbar">

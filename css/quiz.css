@@ -59,6 +59,27 @@ body {
     margin: auto;
 }
 
+.copy-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: center;
+}
+
+.copy-link .copybtn {
+    margin: 8px;
+    font-size: 1.1rem;
+    background-color: rgb(var(--secondary-accent));
+    color: rgb(var(--black-text-color));
+    border-radius: 8px;
+    border: none;
+}
+
+.copy-link .copybtn:hover {
+    background-color: rgba(var(--secondary-accent), .7);
+    transition-duration: .1s;
+}
+
 .questions-wrapper {
     display: flex;
     flex-direction: column;
