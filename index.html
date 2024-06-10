@@ -31,7 +31,7 @@
                 <div class="answers">
                     <div class="answer" v-for="option, j in question.options">
                         <input type="radio" class="answer-radio" @change="question.correct = j" :checked="question.correct === j">
-                        <input type="text" class="answer-text" v-model="question.options[j]"> <!-- TODO: Add vue option value -->
+                        <input type="text" class="answer-text" v-model="question.options[j]">
                     </div>
                 </div>
             </div>
