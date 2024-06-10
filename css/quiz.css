@@ -64,6 +64,12 @@ body {
     flex-direction: column;
     align-items: center;
     justify-self: center;
+    border-radius: 12px;
+    padding: 12px;
+    backdrop-filter: blur(60px);
+    -webkit-backdrop-filter: blur(60px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    background: linear-gradient(rgba(var(--glass-background-color), 0.3), rgba(var(--background-color), 0.3));
 }
 
 .copy-link .copybtn {
