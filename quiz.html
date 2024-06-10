@@ -23,7 +23,7 @@
 
         <div class="copy-link" v-if="preview === true">
             <div class="created">Your quiz has been successfully created!</div>
-            <input type="button" value="Copy link" class="copybtn">
+            <input type="button" class="copybtn" @click="copyLink()" v-model="copied === true ? 'Copied!' : 'Copy link!'">
         </div>
 
         <div class="questions-wrapper">

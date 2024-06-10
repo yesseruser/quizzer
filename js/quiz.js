@@ -15,10 +15,13 @@ PetiteVue.createApp({
 
         this.questions = response.data[0].data;
         this.preview = params.get("preview") === "true";
-        
-
     },
     copied: false,
     preview: false,
     questions: {},
+    copyLink() {
+        const linkToCopy = location.href.split("&")[0];
+        navigator.clipboard.writeText(linkToCopy);
+        this.copied = true;
+    },
 }).mount();
