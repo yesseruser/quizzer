@@ -25,7 +25,7 @@
                 <div class="topbar">
                     <div class="title">Question #1</div>
                 </div>
-                <div class="description">Lorem ipsum dolor sit amet et cenetoajortj</div>
+                <div class="description" v-model="question.text"></div>
                 <div class="answers">
                     <div class="answer" v-for="option, j in question.options">
                         <input type="radio" class="answer-radio" @change="question.correct = j" :checked="question.correct === j">
@@ -35,5 +35,7 @@
             </div>
         </div>
     </main>
+
+    <script src="js/quiz.js"></script>
 </body>
 </html>
