@@ -4,9 +4,21 @@ const db = supabase.createClient(
 )
 const params = new URL(location.href).searchParams;
 
-db.from("quizzes").select("*").eq("id", params.get("id")).then((response) => {
-    PetiteVue.createApp({
-        preview: params.get("preview") === "true",
-        questions: response.data[0].data,
-    }).mount();
-});
+PetiteVue.createApp({
+    async onMount() {
+        let response = await db.from("quizzes").select("*").eq("id", params.get("id"))
+        console.log(response);
+
+        if (response === null || response.data === null || response.data.length === 0) {
+            location.href = "index.html";
+        }
+
+        this.questions = response.data[0].data;
+        this.preview = params.get("preview") === "true";
+        
+
+    },
+    copied: false,
+    preview: false,
+    questions: {},
+}).mount();
