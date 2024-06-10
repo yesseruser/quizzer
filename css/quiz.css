@@ -106,11 +106,9 @@ body {
 
 .description {
     width: 182px;
-    resize: none;
     margin-top: 8px;
     font-size: 0.9rem;
-    border: 2px solid rgb(var(--accent));
-    border-radius: 6px;
+    text-wrap: wrap;
 }
 
 .answers {
