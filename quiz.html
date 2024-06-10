@@ -25,11 +25,11 @@
                 <div class="topbar">
                     <div class="title">Question #1</div>
                 </div>
-                <div class="description" v-model="question.text"></div>
+                <div class="description">{{question.text}}</div>
                 <div class="answers">
                     <div class="answer" v-for="option, j in question.options">
-                        <input type="radio" class="answer-radio" @change="question.correct = j" :checked="question.correct === j">
-                        <div class="answer-text" v-model="question.options[j]"></div>
+                        <input type="radio" class="answer-radio" @change="question.selected = j" :checked="question.selected === j">
+                        <div class="answer-text">{{question.options[j]}}</div>
                     </div>
                 </div>
             </div>

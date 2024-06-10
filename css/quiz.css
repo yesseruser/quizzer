@@ -107,7 +107,7 @@ body {
 .description {
     width: 182px;
     margin-top: 8px;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     text-wrap: wrap;
 }
 
@@ -135,6 +135,7 @@ body {
     width: 160px;
     border-radius: 6px;
     border: none;
+    font-size: 0.9rem;
 }
 
 .buttons {
