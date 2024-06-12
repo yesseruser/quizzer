@@ -7,7 +7,6 @@ const params = new URL(location.href).searchParams;
 PetiteVue.createApp({
     async onMount() {
         let response = await db.from("quizzes").select("*").eq("id", params.get("id"))
-        console.log(response);
 
         if (response === null || response.data === null || response.data.length === 0) {
             alert("No questions found in this quiz. Redirecting to home page.");
