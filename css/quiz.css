@@ -186,6 +186,42 @@ body {
     transition-duration: .1s;
 }
 
+#submit, #results {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+}
+
+#finish, #replay {
+    margin: 8px;
+    font-size: 1.1rem;
+    background-color: rgb(var(--secondary-accent));
+    color: rgb(var(--black-text-color));
+    border-radius: 8px;
+    padding: 8px;
+    border: none;
+}
+
+#finish:hover {
+    background-color: rgba(var(--secondary-accent), .7);
+    transition-duration: 0.1s;
+}
+
 footer {
     height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.make-your-own {
+    color: rgb(var(--secondary-accent));
+}
+
+.make-your-own:hover {
+    color: rgba(var(--secondary-accent), .7);
+    transition-duration: 0.1s;
 }
