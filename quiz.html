@@ -35,7 +35,7 @@
                 <div class="answers">
                     <div class="answer" v-for="option, j in question.options">
                         <input type="radio" class="answer-radio" @change="question.selected = j" :checked="question.selected === j" v-disabled="isFinished">
-                        <div class="answer-text">{{question.options[j]}}</div>
+                        <div class="answer-text" @click="question.selected = j">{{question.options[j]}}</div>
                     </div>
                 </div>
             </div>
