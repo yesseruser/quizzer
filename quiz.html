@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizzer</title>
+    <link rel="stylesheet" href="css/quiz.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="https://unpkg.com/petite-vue"></script>
+    <script src="https://unpkg.com/@supabase/supabase-js@2.43.4/dist/umd/supabase.js"></script>
+</head>
+<body>
+    <main class="home" @vue:mounted="onMount()">
+        <div class="hero">
+            <h1 class="title">Quizzer</h1>
+            <div class="subtitle">
+                Scroll down
+                <span class="material-symbols-outlined">
+                    arrow_downward
+                </span>
+            </div>
+        </div>
+
+        <div class="copy-link" v-if="preview === true">
+            <div class="created">Your quiz has been successfully created!</div>
+            <input type="button" class="copybtn" @click="copyLink()" v-model="copied === true ? 'Copied!' : 'Copy link!'">
+        </div>
+
+        <div class="questions-wrapper">
+            <div class="question" v-for="question, i in questions">
+                <div class="topbar">
+                    <div class="title">Question #1</div>
+                </div>
+                <div class="description">{{question.text}}</div>
+                <div class="answers">
+                    <div class="answer" v-for="option, j in question.options">
+                        <input type="radio" class="answer-radio" @change="question.selected = j" :checked="question.selected === j" v-disabled="isFinished">
+                        <div class="answer-text" @click="question.selected = j">{{question.options[j]}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="submit" v-if="!isFinished">
+            <input type="button" id="finish" @click="isFinished = true" value="Finish Quiz">
+        </div>
+        <div id="results" v-else>
+            <div id="result-text">You got {{ correctCount }} out of {{ questions.length }} questions correct!</div>
+            <input type="button" id="replay" @click="restart()" value="Replay Quiz">
+        </div>
+    </main>
+
+    <footer>
+        <a class="make-your-own" href="index.html">Make your own quiz</a>
+    </footer>
+
+    <script src="js/quiz.js"></script>
+</body>
+</html>
