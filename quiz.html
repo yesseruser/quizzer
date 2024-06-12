@@ -34,11 +34,19 @@
                 <div class="description">{{question.text}}</div>
                 <div class="answers">
                     <div class="answer" v-for="option, j in question.options">
-                        <input type="radio" class="answer-radio" @change="question.selected = j" :checked="question.selected === j">
+                        <input type="radio" class="answer-radio" @change="question.selected = j" :checked="question.selected === j" v-disabled="isFinished">
                         <div class="answer-text">{{question.options[j]}}</div>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div id="submit" v-if="!isFinished">
+            <input type="button" id="finish" @click="isFinished = true" value="Finish Quiz">
+        </div>
+        <div id="results" v-else>
+            <div id="result-text">You got {{ correctCount }} out of {{ questions.length }} questions correct!</div>
+            <input type="button" id="replay" @click="restart()" value="Replay Quiz">
         </div>
     </main>
 

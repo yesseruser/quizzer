@@ -10,18 +10,40 @@ PetiteVue.createApp({
         console.log(response);
 
         if (response === null || response.data === null || response.data.length === 0) {
+            alert("No questions found in this quiz. Redirecting to home page.");
             location.href = "index.html";
         }
 
         this.questions = response.data[0].data;
         this.preview = params.get("preview") === "true";
     },
+    
     copied: false,
     preview: false,
-    questions: {},
+    questions: null,
+    isFinished: false,
+
     copyLink() {
         const linkToCopy = location.href.split("&")[0];
         navigator.clipboard.writeText(linkToCopy);
         this.copied = true;
     },
+
+    restart() {
+        location.reload();
+    },
+
+    get correctCount() {
+        if (this.questions === null ) {
+            return 0;
+        }
+
+        let count = 0;
+        for (const question of this.questions) {
+            if (question.selected === question.correct) {
+                count++;
+            }
+        }
+        return count;
+    }
 }).mount();
